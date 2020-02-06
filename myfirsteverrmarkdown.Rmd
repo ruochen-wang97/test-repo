@@ -1,0 +1,42 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# RUOCHEN'S FIRST EVER R MARKDOWN!
+
+### Hello worlddddd
+
+Date: 2.5.2020
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = T)
+
+```
+
+```{r load-packages, message = F}
+library(tidyverse)
+
+```
+
+```{r make-plot, echo = F}
+storms %>%
+  group_by(year) %>%
+  summarize(wind = mean(wind)) %>%
+  ggplot(mapping = aes(x = year, y = wind)) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
